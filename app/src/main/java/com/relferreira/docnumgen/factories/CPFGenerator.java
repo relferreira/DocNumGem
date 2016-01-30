@@ -1,4 +1,4 @@
-package com.relferreira.docnumgen.detail;
+package com.relferreira.docnumgen.factories;
 
 import java.util.Random;
 
@@ -9,13 +9,13 @@ import br.com.caelum.stella.validation.CPFValidator;
 /**
  * Created by renan on 29/01/2016.
  */
-public class CPFGenerator extends CPFValidator {
+public class CPFGenerator extends CPFValidator implements Generator {
 
-    public static String generateCPF() {
+    @Override
+    public String generateDoc() {
         final String cpfSemDigitos = new DigitoGenerator().generate(9);
         final String cpfComDigitos = cpfSemDigitos + calculaDigitos(cpfSemDigitos);
         return new CPFFormatter().format(cpfComDigitos);
-
     }
 
     private static String calculaDigitos(String cpfSemDigito) {
@@ -28,6 +28,7 @@ public class CPFGenerator extends CPFValidator {
 
         return digito1 + digito2;
     }
+
 
     public static class DigitoGenerator {
         private static final Random RANDOM = new Random();

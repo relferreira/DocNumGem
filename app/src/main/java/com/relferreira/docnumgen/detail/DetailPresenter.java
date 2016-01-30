@@ -3,9 +3,9 @@ package com.relferreira.docnumgen.detail;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.widget.Toast;
 
 import com.relferreira.docnumgen.base.BasePresenter;
+import com.relferreira.docnumgen.factories.GeneratorFactory;
 import com.relferreira.docnumgen.model.Doc;
 
 /**
@@ -15,7 +15,7 @@ public class DetailPresenter extends BasePresenter<DetailView> {
 
     public void getResult(Doc document) {
         if (isViewAttached())
-            getView().displayResult(CPFGenerator.generateCPF());
+            getView().displayResult(GeneratorFactory.generate(document).generateDoc());
     }
 
 
