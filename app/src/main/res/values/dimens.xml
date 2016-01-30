@@ -1,0 +1,15 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--Docs Adapter-->
+    <dimen name="adapter_docs_margin">10dp</dimen>
+    <dimen name="adapter_docs_cardview_height">80dp</dimen>
+    <dimen name="adapter_docs_cardview_padding">10dp</dimen>
+    <dimen name="adapter_docs_cardview_title">25sp</dimen>
+
+    <!--Detail-->
+    <dimen name="detail_value_text">20sp</dimen>
+</resources>
