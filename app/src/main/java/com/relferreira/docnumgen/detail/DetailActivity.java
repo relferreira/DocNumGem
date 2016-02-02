@@ -1,11 +1,16 @@
 package com.relferreira.docnumgen.detail;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -77,10 +82,20 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            case R.id.menu_pin:
+                showNotification();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -109,5 +124,11 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     @Override
     public void hideLoading() {
 
+    }
+
+    private void showNotification() {
+        NotificationManager mNotifyMgr =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mNotifyMgr.notify(100, presenter.constructNotification(this, document, documentText).build());
     }
 }
