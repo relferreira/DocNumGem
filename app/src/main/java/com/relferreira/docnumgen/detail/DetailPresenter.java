@@ -6,6 +6,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.widget.RemoteViews;
 
 import com.relferreira.docnumgen.R;
 import com.relferreira.docnumgen.base.BasePresenter;
@@ -40,11 +41,14 @@ public class DetailPresenter extends BasePresenter<DetailView> {
         intent.putExtra(DocNotificationService.ARG_DOC, document);
         PendingIntent pendingIntent = PendingIntent.getService(context, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_doc);
+        contentView.setTextViewText(R.id.notification_title, document.getName());
+        contentView.setTextViewText(R.id.notification_subTitle, documentText);
+        contentView.setOnClickPendingIntent(R.id.notification_refresh, pendingIntent);
+
         return new NotificationCompat.Builder(context)
-                .setSmallIcon(R.drawable.menu_notification)
-                .setContentTitle(document.getName())
-                .setContentText(documentText)
-                .addAction(R.drawable.refresh, "Refresh document", pendingIntent);
+                .setContent(contentView)
+                .setSmallIcon(R.drawable.menu_notification);
     }
 
 }

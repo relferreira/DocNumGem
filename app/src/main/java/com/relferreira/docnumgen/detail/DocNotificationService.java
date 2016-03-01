@@ -15,6 +15,7 @@ import com.relferreira.docnumgen.model.Doc;
 public class DocNotificationService extends IntentService {
 
     public static final String ARG_DOC = "argDoc";
+    public static final int NOTIFICATION_ID = 100;
 
     private DetailPresenter presenter;
 
@@ -37,8 +38,7 @@ public class DocNotificationService extends IntentService {
 
         NotificationManager mNotifyMgr =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        mNotifyMgr.notify(100, presenter.constructNotification(this, document, documentText).build());
+        mNotifyMgr.notify(NOTIFICATION_ID, presenter.constructNotification(this, document, documentText).build());
 
-        Toast.makeText(this, "New document number copied!", Toast.LENGTH_LONG).show();
     }
 }
