@@ -5,4 +5,5 @@
     <string name="detail_menu_pin">PIN</string>
     <string name="detail_copy">COPY</string>
     <string name="detail_refresh">REFRESH</string>
+    <string name="detail_doc_copied">Doc copied to clipboard</string>
 </resources>

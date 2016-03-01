@@ -18,6 +18,9 @@ import com.relferreira.docnumgen.model.Doc;
  */
 public class DetailPresenter extends BasePresenter<DetailView> {
 
+    public static String DOCNUMGEM_CLIPART = "docnumgem_copy";
+    public static int PENDING_INTENT_REQUEST_CODE = 100;
+
     public String generateDocument(Doc document) {
         return GeneratorFactory.generate(document).generateDoc();
     }
@@ -30,7 +33,7 @@ public class DetailPresenter extends BasePresenter<DetailView> {
 
     public void copyToClipBoard(Context context, String documentText) {
         ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText("text", documentText);
+        ClipData clip = ClipData.newPlainText(DOCNUMGEM_CLIPART, documentText);
         clipboard.setPrimaryClip(clip);
         if (isViewAttached())
             getView().notifyCopy();
@@ -39,7 +42,7 @@ public class DetailPresenter extends BasePresenter<DetailView> {
     public NotificationCompat.Builder constructNotification(Context context, Doc document, String documentText) {
         Intent intent = new Intent(context, DocNotificationService.class);
         intent.putExtra(DocNotificationService.ARG_DOC, document);
-        PendingIntent pendingIntent = PendingIntent.getService(context, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getService(context, PENDING_INTENT_REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_doc);
         contentView.setTextViewText(R.id.notification_title, document.getName());

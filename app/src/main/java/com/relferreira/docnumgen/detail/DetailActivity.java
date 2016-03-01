@@ -3,6 +3,7 @@ package com.relferreira.docnumgen.detail;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -31,11 +32,13 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     private Doc document;
     private CoordinatorLayout coordinatorLayout;
     private String documentText;
+    private Resources resources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        resources = getResources();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -108,7 +111,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
 
     @Override
     public void notifyCopy() {
-        Snackbar.make(coordinatorLayout, "Doc copied to clipboard", Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(coordinatorLayout, resources.getString(R.string.detail_doc_copied), Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
