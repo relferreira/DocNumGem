@@ -1,52 +1,47 @@
 package com.relferreira.docnumgen.main;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.relferreira.docnumgen.R;
 import com.relferreira.docnumgen.detail.DetailActivity;
 import com.relferreira.docnumgen.model.Doc;
 
-import java.util.ArrayList;
-import java.util.List;
+public class MainActivity extends AppCompatActivity implements DocListFragment.DocFragmentListener {
 
-public class MainActivity extends AppCompatActivity implements MainView {
 
-    private DocsAdapter adapter;
-    private List<Doc> list = new ArrayList<>();
-    private MainPresenter presenter;
+    private Resources resources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        resources = getResources();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        TabsAdapter adapter = new TabsAdapter(getSupportFragmentManager());
+        adapter.add(DocListFragment.newInstance(), resources.getString(R.string.main_tab_list));
+        adapter.add(DocFavFragment.newInstance(), resources.getString(R.string.main_tab_fav));
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.docs_list);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setAdapter(adapter);
 
-        adapter = new DocsAdapter(list, this);
-        recyclerView.setAdapter(adapter);
-
-        presenter = new MainPresenter();
-        presenter.attachView(this);
-        presenter.loadData();
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.dettachView();
     }
 
     @Override
@@ -67,30 +62,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void updateList(List<Doc> list) {
-        this.list.addAll(list);
-        adapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void openDetail(Doc document) {
+    public void openDetailListener(Doc document) {
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra(DetailActivity.ARG_DOC, document);
         startActivity(intent);
-    }
-
-    @Override
-    public void showError(int status, String error) {
-
-    }
-
-    @Override
-    public void showLoading(boolean refresh) {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
     }
 }

@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">DocNumGen</string>
     <string name="action_settings">Settings</string>
+
+    <string name="main_tab_list">Documents</string>
+    <string name="main_tab_fav">Favorites</string>
+
     <string name="detail_toolbar">Detail</string>
     <string name="detail_menu_pin">PIN</string>
     <string name="detail_copy">COPY</string>
