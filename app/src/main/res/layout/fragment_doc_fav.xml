@@ -8,7 +8,7 @@
     tools:context=".main.MainActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/docs_list"
+        android:id="@+id/docs__fav_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/adapter_docs" />

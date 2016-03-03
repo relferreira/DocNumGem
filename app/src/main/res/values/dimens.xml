@@ -10,6 +10,11 @@
     <dimen name="adapter_docs_cardview_padding">10dp</dimen>
     <dimen name="adapter_docs_cardview_title">25sp</dimen>
 
+    <!--Docs Favorite Adapter-->
+    <dimen name="adapter_docs_fav_margin">16dp</dimen>
+    <dimen name="adapter_docs_fav_height">60dp</dimen>
+    <dimen name="adapter_docs_fav_textsize">18sp</dimen>
+
     <!--Detail-->
     <dimen name="detail_value_text">20sp</dimen>
 </resources>
