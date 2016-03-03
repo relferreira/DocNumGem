@@ -99,6 +99,9 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
             case R.id.menu_pin:
                 showNotification();
                 return true;
+            case R.id.menu_favorite:
+                favoriteDoc();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -115,6 +118,11 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     }
 
     @Override
+    public void notifyDocumentFavorited() {
+        Snackbar.make(coordinatorLayout, resources.getString(R.string.detail_doc_favorited), Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void showError(int status, String error) {
 
     }
@@ -127,6 +135,10 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     @Override
     public void hideLoading() {
 
+    }
+
+    private void favoriteDoc() {
+        presenter.favoriteDocument(document);
     }
 
     private void showNotification() {

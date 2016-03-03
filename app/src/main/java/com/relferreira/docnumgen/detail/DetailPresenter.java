@@ -12,6 +12,9 @@ import com.relferreira.docnumgen.R;
 import com.relferreira.docnumgen.base.BasePresenter;
 import com.relferreira.docnumgen.factories.GeneratorFactory;
 import com.relferreira.docnumgen.model.Doc;
+import com.relferreira.docnumgen.model.DocRealm;
+
+import io.realm.Realm;
 
 /**
  * Created by renan on 28/01/2016.
@@ -28,6 +31,15 @@ public class DetailPresenter extends BasePresenter<DetailView> {
     public void getResult(Doc document) {
         if (isViewAttached())
             getView().displayResult(generateDocument(document));
+    }
+
+    public void favoriteDocument(Doc document) {
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        realm.copyToRealm(new DocRealm(document.getId(), document.getName()));
+        realm.commitTransaction();
+        if (isViewAttached())
+            getView().notifyDocumentFavorited();
     }
 
 

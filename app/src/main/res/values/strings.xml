@@ -6,8 +6,11 @@
     <string name="main_tab_fav">Favorites</string>
 
     <string name="detail_toolbar">Detail</string>
-    <string name="detail_menu_pin">PIN</string>
+    <string name="detail_menu_pin">Pin</string>
+    <string name="detail_menu_fav">Favorite</string>
     <string name="detail_copy">COPY</string>
     <string name="detail_refresh">REFRESH</string>
     <string name="detail_doc_copied">Doc copied to clipboard</string>
+    <string name="detail_doc_favorited">Doc favorited</string>
+
 </resources>

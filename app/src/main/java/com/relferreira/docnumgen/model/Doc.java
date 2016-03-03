@@ -3,13 +3,17 @@ package com.relferreira.docnumgen.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by renan on 11/01/2016.
  */
 public class Doc implements Parcelable {
 
-    private String name;
+    @PrimaryKey
     private int id;
+    private String name;
 
     public Doc(String name, int id) {
         this.name = name;

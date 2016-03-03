@@ -12,4 +12,6 @@ public interface DetailView extends BaseView {
 
     void notifyCopy();
 
+    void notifyDocumentFavorited();
+
 }

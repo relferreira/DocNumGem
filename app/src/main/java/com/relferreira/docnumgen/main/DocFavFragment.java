@@ -8,11 +8,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.relferreira.docnumgen.R;
+import com.relferreira.docnumgen.model.Doc;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class DocFavFragment extends Fragment implements DocTabFragment {
+public class DocFavFragment extends Fragment implements DocTabFragment, FavView {
+
+    private FavPresenter presenter;
+    private List<Doc> docList = new ArrayList<>();
+    private DocFavAdapter adapter;
 
     public static DocFavFragment newInstance() {
 
@@ -32,7 +41,40 @@ public class DocFavFragment extends Fragment implements DocTabFragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        adapter = new DocFavAdapter(docList);
+        recyclerView.setAdapter(adapter);
 
+        presenter = new FavPresenter();
+        presenter.attachView(this);
+        presenter.loadFavorites();
         return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        presenter.dettachView();
+    }
+
+    @Override
+    public void showFavorites(List<Doc> docList) {
+        Toast.makeText(getActivity(), "teste", Toast.LENGTH_LONG).show();
+        this.docList.addAll(docList);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showError(int status, String error) {
+
+    }
+
+    @Override
+    public void showLoading(boolean refresh) {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
     }
 }
