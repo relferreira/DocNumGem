@@ -1,4 +1,4 @@
-package com.relferreira.docnumgen.main;
+package com.relferreira.docnumgen.presentation.view.activity;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -11,7 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.relferreira.docnumgen.R;
-import com.relferreira.docnumgen.detail.DetailActivity;
+import com.relferreira.docnumgen.presentation.view.fragment.DocFavFragment;
+import com.relferreira.docnumgen.presentation.view.fragment.DocListFragment;
+import com.relferreira.docnumgen.presentation.view.adapter.TabsAdapter;
 import com.relferreira.docnumgen.model.Doc;
 
 public class MainActivity extends AppCompatActivity implements DocListFragment.DocFragmentListener {

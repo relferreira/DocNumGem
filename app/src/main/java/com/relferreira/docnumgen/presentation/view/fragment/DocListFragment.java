@@ -1,8 +1,6 @@
-package com.relferreira.docnumgen.main;
+package com.relferreira.docnumgen.presentation.view.fragment;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -13,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.relferreira.docnumgen.R;
-import com.relferreira.docnumgen.detail.DetailActivity;
 import com.relferreira.docnumgen.model.Doc;
+import com.relferreira.docnumgen.presentation.presenter.MainPresenter;
+import com.relferreira.docnumgen.presentation.view.MainView;
+import com.relferreira.docnumgen.presentation.view.adapter.DocsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

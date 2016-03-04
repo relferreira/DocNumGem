@@ -1,13 +1,10 @@
-package com.relferreira.docnumgen.detail;
+package com.relferreira.docnumgen.presentation.view.activity;
 
 import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,6 +15,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.relferreira.docnumgen.R;
+import com.relferreira.docnumgen.presentation.presenter.DetailPresenter;
+import com.relferreira.docnumgen.presentation.view.DetailView;
 import com.relferreira.docnumgen.model.Doc;
 
 /**

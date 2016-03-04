@@ -3,7 +3,7 @@ package com.relferreira.docnumgen;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.relferreira.docnumgen.main.MainActivity;
+import com.relferreira.docnumgen.presentation.view.activity.MainActivity;
 
 import org.junit.Rule;
 import org.junit.Test;

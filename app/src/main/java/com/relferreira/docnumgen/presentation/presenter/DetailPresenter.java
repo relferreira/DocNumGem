@@ -1,4 +1,4 @@
-package com.relferreira.docnumgen.detail;
+package com.relferreira.docnumgen.presentation.presenter;
 
 import android.app.PendingIntent;
 import android.content.ClipData;
@@ -9,10 +9,12 @@ import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
 
 import com.relferreira.docnumgen.R;
-import com.relferreira.docnumgen.base.BasePresenter;
+import com.relferreira.docnumgen.presentation.base.BasePresenter;
+import com.relferreira.docnumgen.presentation.view.DetailView;
+import com.relferreira.docnumgen.presentation.service.DocNotificationService;
 import com.relferreira.docnumgen.factories.GeneratorFactory;
 import com.relferreira.docnumgen.model.Doc;
-import com.relferreira.docnumgen.model.DocRealm;
+import com.relferreira.docnumgen.data.entity.DocRealm;
 
 import io.realm.Realm;
 

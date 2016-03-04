@@ -1,6 +1,6 @@
-package com.relferreira.docnumgen.main;
+package com.relferreira.docnumgen.presentation.view;
 
-import com.relferreira.docnumgen.base.BaseView;
+import com.relferreira.docnumgen.presentation.base.BaseView;
 import com.relferreira.docnumgen.model.Doc;
 
 import java.util.List;

@@ -1,8 +1,10 @@
-package com.relferreira.docnumgen.main;
+package com.relferreira.docnumgen.presentation.view.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.relferreira.docnumgen.presentation.view.fragment.DocTabFragment;
 
 import java.util.ArrayList;
 import java.util.List;

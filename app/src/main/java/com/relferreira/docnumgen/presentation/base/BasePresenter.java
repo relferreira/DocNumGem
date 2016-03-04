@@ -1,4 +1,4 @@
-package com.relferreira.docnumgen.base;
+package com.relferreira.docnumgen.presentation.base;
 
 /**
  * Created by renan on 14/01/2016.

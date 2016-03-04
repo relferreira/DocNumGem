@@ -1,4 +1,4 @@
-package com.relferreira.docnumgen.main;
+package com.relferreira.docnumgen.presentation.view.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.relferreira.docnumgen.R;
+import com.relferreira.docnumgen.presentation.view.MainView;
 import com.relferreira.docnumgen.model.Doc;
 
 import java.util.List;

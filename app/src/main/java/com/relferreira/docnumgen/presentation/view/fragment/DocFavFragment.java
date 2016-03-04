@@ -1,4 +1,4 @@
-package com.relferreira.docnumgen.main;
+package com.relferreira.docnumgen.presentation.view.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import com.relferreira.docnumgen.R;
 import com.relferreira.docnumgen.model.Doc;
+import com.relferreira.docnumgen.presentation.presenter.FavPresenter;
+import com.relferreira.docnumgen.presentation.view.FavView;
+import com.relferreira.docnumgen.presentation.view.adapter.DocFavAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

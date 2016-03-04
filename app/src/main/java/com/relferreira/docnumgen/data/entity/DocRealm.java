@@ -1,4 +1,4 @@
-package com.relferreira.docnumgen.model;
+package com.relferreira.docnumgen.data.entity;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;

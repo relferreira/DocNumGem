@@ -1,13 +1,11 @@
-package com.relferreira.docnumgen.detail;
+package com.relferreira.docnumgen.presentation.service;
 
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.content.Intent;
-import android.support.v4.app.NotificationCompat;
-import android.widget.Toast;
 
-import com.relferreira.docnumgen.R;
 import com.relferreira.docnumgen.model.Doc;
+import com.relferreira.docnumgen.presentation.presenter.DetailPresenter;
 
 /**
  * Created by renan on 01/02/2016.
